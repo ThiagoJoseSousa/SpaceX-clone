@@ -1,5 +1,7 @@
 const titles__title= document.querySelectorAll(".titles__title")
 const titles__button= document.querySelectorAll(".titles__cta")
+
+const menu__button = document.querySelector('.menu__button')
 /* name it better:
 intersection observer listens to changes/intersections of a target elemtn either in viewport or ancestor element
 so entries is all intersections of a box ele
@@ -36,11 +38,11 @@ function hideNavbarAsScrolling (){
 window.addEventListener('scroll', ()=>{
     // both pageYOffset and documentElement.scrollTop are ways to acess browser scroll
     let currScrollTopDistance=window.pageYOffset || document.documentElement.scrollTop;
-    if(currScrollTopDistance > previousScrollTopDistance){
+    if(currScrollTopDistance > previousScrollTopDistance && menu__button.checked===false){
         navbar.classList.add('disappear')
 
     }
-    if (currScrollTopDistance < previousScrollTopDistance) {
+    if (currScrollTopDistance < previousScrollTopDistance && menu__button.checked===false) {
         navbar.classList.remove('disappear')
     }
     previousScrollTopDistance = currScrollTopDistance;
