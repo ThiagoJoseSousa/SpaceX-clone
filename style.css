@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+    outline: 1px solid #f00 !important;
+      
+      
+}
+
+.header{
+position: fixed;
+font-weight: 700;
+width: 100%;
+z-index: 10;
+}
+
+.nav__item, .menu__list, .menu__item{
+color:white;
+font-size: 14px;
+text-decoration: none;
+list-style: none;
+}
+
+.nav__items{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.nav__item--logo{
+    background-color:red;
+    display: inline-block;
+    margin: auto;
+    width: 200px;
+    height: 50px;
+}
+
+.nav__item, .nav__item--separated{
+    display: block;
+    margin-left: 25px;
+}
+
+.nav__item--separated{
+    margin-left: 50px;
+}
+
+
+/* menu button */
+
+/* this is an useless element after learning how to 
+center absolute div: */
+.menu__open{
+    background-color: aliceblue;
+    width:80px;
+    height: 50px;
+    top: 25%;
+    pointer-events: none;
+    position: relative;
+}
+
+.menu__button, .menu__icon {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+.menu__button {
+    z-index: 1;
+    pointer-events: all;
+}
+
+.menu__icon {
+    background-color: red;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.nav__item--menu{
+    justify-content: center;
+    height: 100px;
+    margin: 0px;
+    min-width: 80px;
+}
+
+.menu{
+    text-align: right;
+    transform: translate(180px, 37%);
+}
+
+.menu__button:checked ~ .menu{
+    display: block;
+    transform:translate(0px, 37%);;
+}
+
+/* It is because you are using position absolute. You cannot use position absolute with overflow hidden, because position absolute moves the targeted element out of context with the document structure.
+Indeeeeeeeeeed, position relative can be overflowed since its on the div occupying space. But absolute really removes the element
+space from the document, like it doesn't exist, just floats.  
+https://www.youtube.com/watch?v=SMKzuP4M4Ak&ab_channel=ModusCreate%2CLLC */
+
+/* https://www.youtube.com/watch?v=erqRw3E-vn4&ab_channel=TomIsLoading responsive text
+https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/ */
+
+/* section styling */
+section {
+    background: black;
+    display: block;
+    height: 100vh;
+    position:relative;
+}
+
+section:first-child{
+    background: green;
+}
+
+.titles{
+    color: white;
+    display:inline-block;
+    left: 5%;
+    position: relative;
+    text-transform: uppercase;
+    top: 60%;
+}
+
+.titles h3{
+    font-weight: 400;
+}
+
+.titles__cta{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 16px;
+    margin-top: 30px;
+    padding:10px 40px;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(200px);
+    transition-property: color;
+    transition-delay: 0.3s;
+}
+
+.section__arrow-down {
+    animation: point-down 3s cubic-bezier(.03,.81,.6,1) 0s infinite normal;
+    background: center / contain no-repeat url("public/img/arrow-down.png") ;
+    display: inline-block;
+    height: 25px;
+    width: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+}
+
+/* navbar scroll animation */
+.header.disappear {
+    transform: translateY(-100px)
+}
+
+/* title appear animation */
+
+@keyframes reveal {
+    0%{
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* shorthand */
+.titles .reveal {
+    animation: reveal 1s forwards;
+}
+
+.titles .titles__cta.reveal {
+    animation: reveal 1s forwards 0.3s;
+}
+
+/* nav items disappear*/
+@media (max-width:1080px){
+    
+    .nav__item{
+        display: none;
+    }
+    
+    .nav__item.nav__item--logo{
+        display:inline-block
+    }
+    .nav__item.nav__item--menu{
+        display:inline-block
+    }
+}
+
+/* arrow down animation */
+
+@keyframes point-down {
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50%{
+        opacity: 100%;
+        transform: translateY(25px);
+    }
+    100%{
+        opacity: 0%;
+        transform: translateY(25px);
+    }
+}
+
+/* button hover animation */
+
+.titles__cta::before{
+background-color: white;
+content: "";
+position: absolute; 
+z-index: -1;   
+inset:0;
+transform: scaleY(0%);
+transform-origin: top;
+transition: transform 1s;
+}
+.titles__cta:hover::before,
+.titles__cta:focus::before{
+transform: scaleY(100%);
+transform-origin: bottom;
+}
+
+.titles__cta:hover {
+    color: black;
+}
+
+/* link hover */
+
+.nav__items li {
+    position: relative;
+}
+.nav__item:hover::after
+, .menu__item:hover::after{
+    content: '';
+    left: 25px;
+    right:0;
+    bottom: -25px;
+    height: 8px;
+    background-color: white;
+    position: absolute;
+}
+
+.nav__item--logo:hover::after, .nav__item--menu:hover::after{
+    display: none;
+}
+
+.nav__item--separated:hover::after {
+    content:'';
+    left:50px;
+}
+
+/* display absolute is based upon either 
+the document or a different than static positioned ancestor. */

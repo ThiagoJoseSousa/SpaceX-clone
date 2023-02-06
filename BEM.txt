@@ -1,0 +1,7 @@
+https://www.smashingmagazine.com/2018/06/bem-for-beginners/
+
+IDs are required for using JavaScript.
+Modern browsers can work with either IDs or classes. Any type of selector is processed at the same rate in the browser.
+IDs are used with the <label> tag.
+If you place <label> inside a control, it doesn’t need an ID. Instead of <input id="ID"><label for="ID">Text</label>, simply use <label><input type="...">Text</label>.
+
