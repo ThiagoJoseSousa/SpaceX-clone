@@ -1,6 +1,5 @@
 const titles__title= document.querySelectorAll(".titles__title")
 const titles__button= document.querySelectorAll(".titles__cta")
-
 const menu__button = document.querySelector('.menu__button')
 /* name it better:
 intersection observer listens to changes/intersections of a target elemtn either in viewport or ancestor element
@@ -40,10 +39,12 @@ window.addEventListener('scroll', ()=>{
     let currScrollTopDistance=window.pageYOffset || document.documentElement.scrollTop;
     if(currScrollTopDistance > previousScrollTopDistance && menu__button.checked===false){
         navbar.classList.add('disappear')
-
+        navbar.classList.remove('fade')
+        
     }
     if (currScrollTopDistance < previousScrollTopDistance && menu__button.checked===false) {
         navbar.classList.remove('disappear')
+        navbar.classList.add('fade')
     }
     previousScrollTopDistance = currScrollTopDistance;
 })
