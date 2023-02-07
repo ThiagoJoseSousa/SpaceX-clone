@@ -133,10 +133,11 @@ opacity:60%
     display: block;
     text-align: right;
     position: absolute;
-    top:100%;
+
     right: 0;
     padding-right: 25px;
-    height: 100vw;
+    padding-top: 100%;
+    height: 100vh;
     width: 450px;
     transform: translateX(500px);
     transition: transform 0.5s ;
