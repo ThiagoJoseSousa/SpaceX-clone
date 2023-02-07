@@ -5,9 +5,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Space Mono', monospace;
-    outline: 1px solid #f00 !important;
-      
-      
 }
 
 .header{
@@ -195,8 +192,11 @@ section {
     font-size: clamp(3px,1.5rem,90px);
 }
 
+
+
 h2.titles__title{
-    font-size: clamp(4px,2.5rem,100px);
+    width: fit-content;
+    font-size: clamp(4px,200%,50px)
 }
 
 .titles__cta{
@@ -206,6 +206,7 @@ h2.titles__title{
     cursor: pointer;
     font-size: clamp(4px,1.1rem,100px);
     margin-top: 30px;
+    max-width: 100vw;
     padding:10px 40px;
     text-transform: uppercase;
     opacity: 0;
@@ -382,7 +383,7 @@ transform-origin: bottom;
 }
 
 .section--C{
-    background-image:url("https://sxcontent9668.azureedge.us/cms-assets/assets/S20_Chopstick_Stack_Desktop_0c016b49ec.webp")
+    background-image:url("https://sxcontent9668.azureedge.us/cms-assets/assets/Homepage_Desktop_5ebdeb0c6c.webp")
 }
 
 .section--D{
