@@ -1,5 +1,4 @@
 # SpaceX clone
-![SpaceX](https://github.com/ThiagoJoseSousa/SpaceX-clone/assets/104466535/486be5fd-9c05-43e1-bbba-32014e0033a9)
 
 ## Description
 This project displays a responsive and beautiful layout that contains many animations that ease the user experience. The looks are reusable, and the website could be expanded vertically forever.
